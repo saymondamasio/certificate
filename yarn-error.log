@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/saymondamasio/.nvm/versions/node/v16.13.0/bin/node /Users/saymondamasio/.nvm/versions/node/v16.13.0/bin/yarn add popperteer-core
+  /Users/saymondamasio/.nvm/versions/node/v16.13.0/bin/node /Users/saymondamasio/.nvm/versions/node/v16.13.0/bin/yarn
 
 PATH: 
   /Users/saymondamasio/.nvm/versions/node/v16.13.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/saymondamasio/.zinit/polaris/bin:/Users/saymondamasio/.nvm/versions/node/v16.13.0/bin:/Users/saymondamasio/Library/Android/sdk/emulator:/Users/saymondamasio/Library/Android/sdk/tools:/Users/saymondamasio/Library/Android/sdk/tools/bin:/Users/saymondamasio/Library/Android/sdk/platform-tools:/Users/saymondamasio/Library/Android/sdk/emulator:/Users/saymondamasio/Library/Android/sdk/tools:/Users/saymondamasio/Library/Android/sdk/tools/bin:/Users/saymondamasio/Library/Android/sdk/platform-tools
@@ -14,17 +14,12 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/popperteer-core: Not found
-      at Request.params.callback [as _callback] (/Users/saymondamasio/.nvm/versions/node/v16.13.0/lib/node_modules/yarn/lib/cli.js:67029:18)
-      at Request.self.callback (/Users/saymondamasio/.nvm/versions/node/v16.13.0/lib/node_modules/yarn/lib/cli.js:140883:22)
-      at Request.emit (node:events:390:28)
-      at Request.<anonymous> (/Users/saymondamasio/.nvm/versions/node/v16.13.0/lib/node_modules/yarn/lib/cli.js:141855:10)
-      at Request.emit (node:events:390:28)
-      at IncomingMessage.<anonymous> (/Users/saymondamasio/.nvm/versions/node/v16.13.0/lib/node_modules/yarn/lib/cli.js:141777:12)
-      at Object.onceWrapper (node:events:509:28)
-      at IncomingMessage.emit (node:events:402:35)
-      at endReadableNT (node:internal/streams/readable:1343:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  SyntaxError: /Users/saymondamasio/Projects/certificate/package.json: Unexpected token } in JSON at position 553
+      at JSON.parse (<anonymous>)
+      at /Users/saymondamasio/.nvm/versions/node/v16.13.0/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/Users/saymondamasio/.nvm/versions/node/v16.13.0/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /Users/saymondamasio/.nvm/versions/node/v16.13.0/lib/node_modules/yarn/lib/cli.js:321:13
 
 npm manifest: 
   {
@@ -46,7 +41,7 @@ npm manifest:
       "@middy/http-json-body-parser": "^2.5.3",
       "chrome-aws-lambda": "^10.1.0",
       "dayjs": "^1.10.7",
-      "handlebars": "^4.7.7"
+      "handlebars": "^4.7.7",
     },
     "devDependencies": {
       "@commitlint/cli": "^15.0.0",
@@ -1051,6 +1046,13 @@ Lockfile:
     version "4.0.1"
     resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-4.0.1.tgz#8f80dd965ad81f3e1bc26d6f5c727e132721ff40"
     integrity sha512-Y0K95ThC3esLEYD6ZuqNek29lNX2EM1qxV8y2FTLUB0ff5wWrk7az+mLrnNFUnaXcgKye22+sFBRXOgpPILZNg==
+  
+  "@types/yauzl@^2.9.1":
+    version "2.9.2"
+    resolved "https://registry.yarnpkg.com/@types/yauzl/-/yauzl-2.9.2.tgz#c48e5d56aff1444409e39fa164b0b4d4552a7b7a"
+    integrity sha512-8uALY5LTvSuHgloDVUvWP3pIauILm+8/0pDMokuDYIoNsOkSwd5AiHBTSEJjKTDcZr5z8UpgOWZkxBF4iJftoA==
+    dependencies:
+      "@types/node" "*"
   
   JSONStream@^1.0.4:
     version "1.3.5"
@@ -2166,6 +2168,13 @@ Lockfile:
     dependencies:
       ms "2.1.2"
   
+  debug@4.3.1:
+    version "4.3.1"
+    resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
+    integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
+    dependencies:
+      ms "2.1.2"
+  
   debug@^2.1.3:
     version "2.6.9"
     resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -2341,6 +2350,11 @@ Lockfile:
     version "1.0.3"
     resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
     integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
+  
+  devtools-protocol@0.0.901419:
+    version "0.0.901419"
+    resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.901419.tgz#79b5459c48fe7e1c5563c02bd72f8fec3e0cebcd"
+    integrity sha512-4INMPwNm9XRpBukhNbF7OB6fNTTCaI8pzy/fXg0xQzAy5h3zL1P8xT3QazgKqBrb/hAYwIBizqDBZ7GtJE74QQ==
   
   diagnostics@^1.1.1:
     version "1.1.1"
@@ -2836,6 +2850,17 @@ Lockfile:
       iconv-lite "^0.4.24"
       tmp "^0.0.33"
   
+  extract-zip@2.0.1:
+    version "2.0.1"
+    resolved "https://registry.yarnpkg.com/extract-zip/-/extract-zip-2.0.1.tgz#663dca56fe46df890d5f131ef4a06d22bb8ba13a"
+    integrity sha512-GDhU9ntwuKyGXdZBUgTIe+vXnWj0fppUEtMDL0+idd5Sta8TGpHssn/eusA9mrPr9qNDym6SxAYZjNvCn/9RBg==
+    dependencies:
+      debug "^4.1.1"
+      get-stream "^5.1.0"
+      yauzl "^2.10.0"
+    optionalDependencies:
+      "@types/yauzl" "^2.9.1"
+  
   extsprintf@1.3.0:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
@@ -2993,7 +3018,7 @@ Lockfile:
     dependencies:
       locate-path "^3.0.0"
   
-  find-up@^4.1.0:
+  find-up@^4.0.0, find-up@^4.1.0:
     version "4.1.0"
     resolved "https://registry.yarnpkg.com/find-up/-/find-up-4.1.0.tgz#97afe7d6cdc0bc5928584b7c8d7b16e8a9aa5d19"
     integrity sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==
@@ -3516,7 +3541,7 @@ Lockfile:
       quick-lru "^5.1.1"
       resolve-alpn "^1.0.0"
   
-  https-proxy-agent@^5.0.0:
+  https-proxy-agent@5.0.0, https-proxy-agent@^5.0.0:
     version "5.0.0"
     resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-5.0.0.tgz#e2a90542abb68a762e0a0850f6c9edadfd8506b2"
     integrity sha512-EkYm5BcKUGiduxzSt3Eppko+PiNWNEpa4ySk9vTC6wDsQJW9rHSa+UhGNJoRYp7bz6Ht1eaRIa6QaJqO5rCFbA==
@@ -4778,6 +4803,11 @@ Lockfile:
       object.getownpropertydescriptors "^2.0.3"
       semver "^5.7.0"
   
+  node-fetch@2.6.1:
+    version "2.6.1"
+    resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+    integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
+  
   node-fetch@^2.6.0, node-fetch@^2.6.6:
     version "2.6.6"
     resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
@@ -5229,6 +5259,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
     integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
   
+  pkg-dir@4.2.0:
+    version "4.2.0"
+    resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-4.2.0.tgz#f099133df7ede422e81d1d8448270eeb3e4261f3"
+    integrity sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
+    dependencies:
+      find-up "^4.0.0"
+  
   please-upgrade-node@^3.2.0:
     version "3.2.0"
     resolved "https://registry.yarnpkg.com/please-upgrade-node/-/please-upgrade-node-3.2.0.tgz#aeddd3f994c933e4ad98b99d9a556efa0e2fe942"
@@ -5301,6 +5338,11 @@ Lockfile:
       memoizee "^0.4.14"
       type "^2.1.0"
   
+  progress@2.0.1:
+    version "2.0.1"
+    resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.1.tgz#c9242169342b1c29d275889c95734621b1952e31"
+    integrity sha512-OE+a6vzqazc+K6LxJrX5UPyKFvGnL5CYmq2jFGNIBWHpc4QyE49/YOumcrpQFJpfejmvRtbJzgO1zPmMCqlbBg==
+  
   progress@^1.1.8:
     version "1.1.8"
     resolved "https://registry.yarnpkg.com/progress/-/progress-1.1.8.tgz#e260c78f6161cdd9b0e56cc3e0a85de17c7a57be"
@@ -5329,6 +5371,11 @@ Lockfile:
       "@types/long" "^4.0.1"
       "@types/node" ">=13.7.0"
       long "^4.0.0"
+  
+  proxy-from-env@1.1.0:
+    version "1.1.0"
+    resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
+    integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
   
   psl@^1.1.28:
     version "1.8.0"
@@ -5375,6 +5422,24 @@ Lockfile:
     integrity sha512-l1jNAspIBSFqbT+y+5FosojNpVpF94nlI+wDUpqP9enwOTfHx9f0gh5nB96vl+6yTpsJsypeNrwfzPrKuHB41A==
     dependencies:
       escape-goat "^2.0.0"
+  
+  puppeteer-core@^10.0.0:
+    version "10.4.0"
+    resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-10.4.0.tgz#4e2da57c52339b8c07cd9362922020eb3c3c95bf"
+    integrity sha512-KU8zyb7AIOqNjLCN3wkrFXxh+EVaG+zrs2P03ATNjc3iwSxHsu5/EvZiREpQ/IJiT9xfQbDVgKcsvRuzLCxglQ==
+    dependencies:
+      debug "4.3.1"
+      devtools-protocol "0.0.901419"
+      extract-zip "2.0.1"
+      https-proxy-agent "5.0.0"
+      node-fetch "2.6.1"
+      pkg-dir "4.2.0"
+      progress "2.0.1"
+      proxy-from-env "1.1.0"
+      rimraf "3.0.2"
+      tar-fs "2.0.0"
+      unbzip2-stream "1.3.3"
+      ws "7.4.6"
   
   q@^1.5.1:
     version "1.5.1"
@@ -5674,6 +5739,13 @@ Lockfile:
     version "1.0.4"
     resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
     integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
+  
+  rimraf@3.0.2:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
+    integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
+    dependencies:
+      glob "^7.1.3"
   
   rimraf@^2.6.3:
     version "2.7.1"
@@ -6355,6 +6427,16 @@ Lockfile:
       mkdirp "^0.5.1"
       untildify "^3.0.3"
   
+  tar-fs@2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/tar-fs/-/tar-fs-2.0.0.tgz#677700fc0c8b337a78bee3623fdc235f21d7afad"
+    integrity sha512-vaY0obB6Om/fso8a8vakQBzwholQ7v5+uy+tF3Ozvxv1KNezmVQAiWtcNmMHFSFPqL3dJA8ha6gdtFbfX9mcxA==
+    dependencies:
+      chownr "^1.1.1"
+      mkdirp "^0.5.1"
+      pump "^3.0.0"
+      tar-stream "^2.0.0"
+  
   tar-fs@^1.13.0:
     version "1.16.3"
     resolved "https://registry.yarnpkg.com/tar-fs/-/tar-fs-1.16.3.tgz#966a628841da2c4010406a82167cbd5e0c72d509"
@@ -6388,7 +6470,7 @@ Lockfile:
       to-buffer "^1.1.1"
       xtend "^4.0.0"
   
-  tar-stream@^2.1.4, tar-stream@^2.2.0:
+  tar-stream@^2.0.0, tar-stream@^2.1.4, tar-stream@^2.2.0:
     version "2.2.0"
     resolved "https://registry.yarnpkg.com/tar-stream/-/tar-stream-2.2.0.tgz#acad84c284136b060dc3faa64474aa9aebd77287"
     integrity sha512-ujeqbceABgwMZxEJnk2HDY2DlnUZ+9oEcb1KzTVfYHio0UE6dG71n60d8D2I4qNvleWrrXpmjpt7vZeF1LnMZQ==
@@ -6685,6 +6767,14 @@ Lockfile:
       has-symbols "^1.0.2"
       which-boxed-primitive "^1.0.2"
   
+  unbzip2-stream@1.3.3:
+    version "1.3.3"
+    resolved "https://registry.yarnpkg.com/unbzip2-stream/-/unbzip2-stream-1.3.3.tgz#d156d205e670d8d8c393e1c02ebd506422873f6a"
+    integrity sha512-fUlAF7U9Ah1Q6EieQ4x4zLNejrRvDWUYmxXUpN3uziFYCHapjWFaCAnreY9bGgxzaMCFAPPpYNng57CypwJVhg==
+    dependencies:
+      buffer "^5.2.1"
+      through "^2.3.8"
+  
   unbzip2-stream@^1.0.9:
     version "1.4.3"
     resolved "https://registry.yarnpkg.com/unbzip2-stream/-/unbzip2-stream-1.4.3.tgz#b0da04c4371311df771cdc215e87f2130991ace7"
@@ -6962,15 +7052,15 @@ Lockfile:
       signal-exit "^3.0.2"
       typedarray-to-buffer "^3.1.5"
   
+  ws@7.4.6, ws@~7.4.2:
+    version "7.4.6"
+    resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
+    integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
+  
   ws@^7.3.1, ws@^7.5.3, ws@^7.5.5:
     version "7.5.5"
     resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.5.tgz#8b4bc4af518cfabd0473ae4f99144287b33eb881"
     integrity sha512-BAkMFcAzl8as1G/hArkxOxq3G7pjUqQ3gzYbLL0/5zNkph70e+lCoxBGnm6AW1+/aiNeV4fnKqZ8m4GZewmH2w==
-  
-  ws@~7.4.2:
-    version "7.4.6"
-    resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
-    integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
   
   xdg-basedir@^4.0.0:
     version "4.0.0"
@@ -7102,7 +7192,7 @@ Lockfile:
       y18n "^5.0.5"
       yargs-parser "^20.2.2"
   
-  yauzl@^2.4.2:
+  yauzl@^2.10.0, yauzl@^2.4.2:
     version "2.10.0"
     resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-2.10.0.tgz#c7eb17c93e112cb1086fa6d8e51fb0667b79a5f9"
     integrity sha1-x+sXyT4RLLEIb6bY5R+wZnt5pfk=
