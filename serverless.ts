@@ -7,10 +7,12 @@ const serverlessConfiguration: AWS = {
     'serverless-esbuild',
     'serverless-dynamodb-local',
     'serverless-offline',
+    'serverless-dotenv-plugin'
   ],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
+    region: 'us-east-1',
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
@@ -35,6 +37,18 @@ const serverlessConfiguration: AWS = {
         },
       ],
     },
+    verifyCertificate: {
+      handler: './src/functions/verifyCertificate.handle',
+      events: [
+        {
+          http: {
+            path: '/verifyCertificate/{id}',
+            method: 'get',
+            cors: true,
+          }
+        }
+      ]
+    }
   },
   package: { individually: true },
   resources:{

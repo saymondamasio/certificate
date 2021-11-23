@@ -4,11 +4,9 @@ import path from 'path'
 import fs from 'fs'
 import handlebars from 'handlebars'
 import dayjs from 'dayjs'
-interface ICreateCertificate {
-  id: string
-  name: string
-  grade: string
-}
+import {S3} from 'aws-sdk'
+import { APIGatewayProxyHandler } from 'aws-lambda'
+
 
 interface ITemplate {
   id: string
@@ -26,17 +24,32 @@ const compile = async function(data:ITemplate){
   return handlebars.compile(template)(data)
 }
 
-export const handle = async event => {
-  const { grade, id, name } = event.body as ICreateCertificate
+export const handle:APIGatewayProxyHandler = async event => {
+  const { grade, id, name } = JSON.parse(event.body)
 
-  // await document.put({
-  //   TableName: 'certificates-users',
-  //   Item: {
-  //     id,
-  //     name,
-  //     grade,
-  //   }
-  // }).promise()
+  const response = await document.query({
+    TableName: "certificates-users",
+    KeyConditionExpression: "id = :id",
+    ExpressionAttributeValues: {
+      ':id': id,
+    }
+  }).promise()
+
+
+  const userAlreadyExists = response.Items[0]
+
+  if(!userAlreadyExists) {
+    await document.put({
+      TableName: 'certificates-users',
+      Item: {
+        id,
+        name,
+        grade,
+      }
+    }).promise()
+  }
+
+  
 
   const medalPath = path.join(process.cwd(), 'src', 'templates', 'selo.png')
   const medal = fs.readFileSync(medalPath, 'base64')
@@ -73,10 +86,21 @@ export const handle = async event => {
 
   await browser.close()
 
+  const s3 = new S3()
+
+  await s3.putObject({
+    Bucket: process.env.BUCKET_NAME,
+    Key: `${id}.pdf`,
+    ACL: 'public-read',
+    Body: pdf,
+    ContentType: 'application/pdf',
+  }).promise()
+
   return {
     statusCode: 201,
     body: JSON.stringify({
       message: 'Certificate created',
+      url: `https://${process.env.BUCKET_NAME}.s3.amazonaws.com/${id}.pdf`
     }),
     headers: {
       'Content-Type': 'application/json',
