@@ -24,7 +24,7 @@ const serverlessConfiguration: AWS = {
   // import the function via paths
   functions: {
     generateCertificate: {
-      handler: './src/functions/generateCertificate',
+      handler: './src/functions/generateCertificate.handle',
       events: [
         {
           http: {
