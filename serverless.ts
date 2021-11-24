@@ -70,7 +70,7 @@ const serverlessConfiguration: AWS = {
       ]
     }
   },
-  package: { individually: false },
+  package: { individually: false, include: ['./src/templates/**'] },
   resources:{
     Resources: {
       dbCertificatesUsers: {
