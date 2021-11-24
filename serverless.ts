@@ -1,5 +1,4 @@
 import type { AWS } from '@serverless/typescript'
-import copy from 'esbuild-plugin-copy';
 
 const serverlessConfiguration: AWS = {
   service: 'certificate',
@@ -71,7 +70,7 @@ const serverlessConfiguration: AWS = {
       ]
     }
   },
-  package: { individually: true },
+  package: { individually: false },
   resources:{
     Resources: {
       dbCertificatesUsers: {
@@ -108,14 +107,6 @@ const serverlessConfiguration: AWS = {
       define: { 'require.resolve': undefined },
       platform: 'node',
       concurrency: 10,
-      plugins: [
-        copy({
-          assets: {
-            from: ['./templates/*'],
-            to: ['./templates'],
-          },
-        }),
-      ],
       external: [
         'chrome-aws-lambda'
       ]
