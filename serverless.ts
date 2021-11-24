@@ -1,4 +1,5 @@
 import type { AWS } from '@serverless/typescript'
+import copy from 'esbuild-plugin-copy';
 
 const serverlessConfiguration: AWS = {
   service: 'certificate',
@@ -13,6 +14,26 @@ const serverlessConfiguration: AWS = {
     name: 'aws',
     runtime: 'nodejs14.x',
     region: 'us-east-1',
+    iamRoleStatements:[
+      {
+        Effect: 'Allow',
+        Action: [
+          'dynamodb:*',
+        ],
+        Resource: [
+          '*'
+        ]
+      },
+      {
+        Effect: 'Allow',
+        Action: [
+          's3:*',
+        ],
+        Resource: [
+          '*'
+        ]
+      }
+    ],
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
@@ -87,6 +108,14 @@ const serverlessConfiguration: AWS = {
       define: { 'require.resolve': undefined },
       platform: 'node',
       concurrency: 10,
+      plugins: [
+        copy({
+          assets: {
+            from: ['./templates/*'],
+            to: ['./templates'],
+          },
+        }),
+      ],
       external: [
         'chrome-aws-lambda'
       ]
