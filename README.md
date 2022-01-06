@@ -1,95 +1,141 @@
-# Serverless - AWS Node.js Typescript
+<h1 align="center">
+	<img alt="Logo" src=".github/logo.png" width="200px" />
+</h1>
 
-This project has been generated using the `aws-nodejs-typescript` template from the [Serverless framework](https://www.serverless.com/).
+<h3 align="center">
+  Certificate
+</h3>
 
-For detailed instructions, please refer to the [documentation](https://www.serverless.com/framework/docs/providers/aws/).
+<p align="center">Emissor e validador de certificados</p>
 
-## Installation/deployment instructions
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/saymondamasio/certificate">
 
-Depending on your preferred package manager, follow the instructions below to deploy your project.
+  <a href="https://www.linkedin.com/in/saymondamasio/">
+    <img alt="Made by" src="https://img.shields.io/badge/made%20by-Saymon%20Damásio-gree">
+  </a>
+  
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/saymondamasio/certificate">
+  
+  <a href="https://github.com/saymondamasio/certificate/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/saymondamasio/certificate">
+  </a>
+  
+  <a href="https://github.com/saymondamasio/certificate/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/saymondamasio/certificate">
+  </a>
+  
+  <img alt="GitHub" src="https://img.shields.io/github/license/saymondamasio/certificate">
+</p>
 
-> **Requirements**: NodeJS `lts/fermium (v.14.15.0)`. If you're using [nvm](https://github.com/nvm-sh/nvm), run `nvm use` to ensure you're using the same Node version in local and in your lambda's runtime.
+<p align="center">
+  <a href="#-about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>
+</p>
 
-### Using NPM
+## 👨🏻‍💻 About the project
 
-- Run `npm i` to install the project dependencies
-- Run `npx sls deploy` to deploy this stack to AWS
+<p>Esse projeto consiste em emitir e validar certificados. Essa API foi feita na Trilha Node.js da Rocketseat, usando a arquitetura Serverless além de usar o banco de dados não relacional DynamoDB, para a persistência dos dados, e handlebars e puppeteer para criação do template do certificado.</p>
 
-### Using Yarn
+## 🚀 Technologies
 
-- Run `yarn` to install the project dependencies
-- Run `yarn sls deploy` to deploy this stack to AWS
+Technologies that I used to develop this api
 
-## Test your service
+- [Node.js](https://nodejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Serverless](https://www.serverless.com/)
+- [AWSLambda](https://aws.amazon.com/lambda/)
+- [DynamoDB](https://aws.amazon.com/dynamodb/)
+- [Day.js](https://day.js.org/)
+- [Handlebars](https://handlebarsjs.com)
+- [Puppeteer](https://pptr.dev/)
+- [Husky](https://github.com/typicode/husky)
+- [Commitlint](https://github.com/conventional-changelog/commitlint)
+- [Commitizen](https://github.com/commitizen/cz-cli)
 
-This template contains a single lambda function triggered by an HTTP request made on the provisioned API Gateway REST API `/hello` route with `POST` method. The request body must be provided as `application/json`. The body structure is tested by API Gateway against `src/functions/hello/schema.ts` JSON-Schema definition: it must contain the `name` property.
+## 💻 Getting started
 
-- requesting any other path than `/hello` with any other method than `POST` will result in API Gateway returning a `403` HTTP error code
-- sending a `POST` request to `/hello` with a payload **not** containing a string property named `name` will result in API Gateway returning a `400` HTTP error code
-- sending a `POST` request to `/hello` with a payload containing a string property named `name` will result in API Gateway returning a `200` HTTP status code with a message saluting the provided name and the detailed event processed by the lambda
+### Requirements
 
-> :warning: As is, this template, once deployed, opens a **public** endpoint within your AWS account resources. Anybody with the URL can actively execute the API Gateway endpoint and the corresponding lambda. You should protect this endpoint with the authentication method of your choice.
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://classic.yarnpkg.com/) or [npm](https://www.npmjs.com/)
 
-### Locally
+**Clone the project and access the folder**
 
-In order to test the hello function locally, run the following command:
-
-- `npx sls invoke local -f hello --path src/functions/hello/mock.json` if you're using NPM
-- `yarn sls invoke local -f hello --path src/functions/hello/mock.json` if you're using Yarn
-
-Check the [sls invoke local command documentation](https://www.serverless.com/framework/docs/providers/aws/cli-reference/invoke-local/) for more information.
-
-### Remotely
-
-Copy and replace your `url` - found in Serverless `deploy` command output - and `name` parameter in the following `curl` command in your terminal or in Postman to test your newly deployed application.
-
-```
-curl --location --request POST 'https://myApiEndpoint/dev/hello' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "Frederic"
-}'
-```
-
-## Template features
-
-### Project structure
-
-The project code base is mainly located within the `src` folder. This folder is divided in:
-
-- `functions` - containing code base and configuration for your lambda functions
-- `libs` - containing shared code base between your lambdas
-
-```
-.
-├── src
-│   ├── functions               # Lambda configuration and source code folder
-│   │   ├── hello
-│   │   │   ├── handler.ts      # `Hello` lambda source code
-│   │   │   ├── index.ts        # `Hello` lambda Serverless configuration
-│   │   │   ├── mock.json       # `Hello` lambda input parameter, if any, for local invocation
-│   │   │   └── schema.ts       # `Hello` lambda input event JSON-Schema
-│   │   │
-│   │   └── index.ts            # Import/export of all lambda configurations
-│   │
-│   └── libs                    # Lambda shared code
-│       └── apiGateway.ts       # API Gateway specific helpers
-│       └── handlerResolver.ts  # Sharable library for resolving lambda handlers
-│       └── lambda.ts           # Lambda middleware
-│
-├── package.json
-├── serverless.ts               # Serverless service file
-├── tsconfig.json               # Typescript compiler configuration
-├── tsconfig.paths.json         # Typescript paths
-└── webpack.config.js           # Webpack configuration
+```bash
+$ git clone https://github.com/saymondamasio/certificate.git && cd certificate
 ```
 
-### 3rd party libraries
+**Follow the steps below**
 
-- [json-schema-to-ts](https://github.com/ThomasAribart/json-schema-to-ts) - uses JSON-Schema definitions used by API Gateway for HTTP request validation to statically generate TypeScript types in your lambda's handler code base
-- [middy](https://github.com/middyjs/middy) - middleware engine for Node.Js lambda. This template uses [http-json-body-parser](https://github.com/middyjs/middy/tree/master/packages/http-json-body-parser) to convert API Gateway `event.body` property, originally passed as a stringified JSON, to its corresponding parsed object
-- [@serverless/typescript](https://github.com/serverless/typescript) - provides up-to-date TypeScript definitions for your `serverless.ts` service file
+```bash
 
-### Advanced usage
+# If using Ubuntu or a derivative
+sudo apt-get install build-essential
 
-Any tsconfig.json can be used, but if you do, set the environment variable `TS_NODE_CONFIG` for building the application, eg `TS_NODE_CONFIG=./tsconfig.app.json npx serverless webpack`
+# Install the dependencies
+$ yarn
+
+# Download DynamoDB locally
+serverless dynamodb install
+
+# Start database in local environment
+yarn dynamo:start
+
+# iniciar a aplicação em ambiente local
+yarn dev
+
+# Well done, project is started!
+```
+
+## How to deploy
+
+```bash
+# Configurar as credenciais do usuário
+serverless config credentials --provider aws --key YOUR_KEY --secret YOUR_SECRET
+
+# subir o projeto para AWS Lambda
+yarn deploy
+```
+
+## 🤔 How to contribute
+
+**Make a fork of this repository**
+
+```bash
+# Fork using GitHub official command line
+# If you don't have the GitHub CLI, use the web site to do that.
+
+$ gh repo fork saymondamasio/certificate
+```
+
+**Follow the steps below**
+
+```bash
+# Clone your fork
+$ git clone your-fork-url && cd NOME_DO_REPO
+
+# Create a branch with your feature
+$ git checkout -b my-feature
+
+# Make the commit with your changes
+$ git commit -m 'feat: My new feature'
+## or use cli commitlint
+$ yarn commit
+
+# Send the code to your remote branch
+$ git push origin my-feature
+```
+
+After your pull request is merged, you can delete your branch
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Made with 💜 &nbsp;by Saymon Damásio 👋 &nbsp;[See my linkedin](https://www.linkedin.com/in/saymondamasio/)

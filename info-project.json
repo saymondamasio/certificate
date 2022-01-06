@@ -1,5 +1,51 @@
 {
   "name": "Certificate",
-  "description": "Um serverless de emissão de certificados usando AWS Lambda",
-  "short_description": "Um emissor de crtificados"
+  "short_description": "Emissor e validador de certificados",
+  "description": "Esse projeto consiste em emitir e validar certificados. Essa API foi feita na Trilha Node.js da Rocketseat, usando a arquitetura Serverless além de usar o banco de dados não relacional DynamoDB, para a persistência dos dados, e handlebars e puppeteer para criação do template do certificado.",
+  "techs": [
+    {
+      "name": "Node.js",
+      "url": "https://nodejs.org"
+    },
+    {
+      "name": "Typescript",
+      "url": "https://www.typescriptlang.org"
+    },
+    {
+      "name": "Serverless",
+      "url": "https://serverless.com"
+    },
+    {
+      "name": "AWSLambda",
+      "url": "https://aws.amazon.com/lambda/"
+    },
+    {
+      "name": "DynamoDB",
+      "url": "https://aws.amazon.com/dynamodb/"
+    },
+    {
+      "name": "Day.js",
+      "url": "https://day.js.org/"
+    },
+    {
+      "name": "Handlebars",
+      "url": "https://handlebarsjs.com"
+    },
+    {
+      "name": "Puppeteer",
+      "url": "https://pptr.dev/"
+    },
+    {
+      "name": "Husky",
+      "url": "https://github.com/typicode/husky"
+    },
+    {
+      "name": "Commitlint",
+      "url": "https://github.com/conventional-changelog/commitlint"
+    },
+    {
+      "name": "Commitizen",
+      "url": "https://github.com/commitizen/cz-cli"
+    }
+  ]
 }
